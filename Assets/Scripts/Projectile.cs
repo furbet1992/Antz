@@ -6,8 +6,7 @@ public class Projectile : MonoBehaviour
 {
     private Renderer render;
     [SerializeField] float projectileSpeed= 10f;
-    [SerializeField] float projectileDamage;
-    private Rigidbody rb; 
+    [SerializeField] float projectileDamage = 10f;
 
     
 
@@ -34,8 +33,12 @@ public class Projectile : MonoBehaviour
         this.transform.Translate(0, 0, -projectileSpeed * Time.deltaTime);
         //this.transform.position += new Vector3(0, 0, projectileSpeed * Time.deltaTime); 
         //transform.position += transform.forward * (projectileSpeed * Time.deltaTime); 
-           
-        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject); 
+        Debug.Log("hit"); 
     }
 }
 
