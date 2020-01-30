@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
 
     bool buttonPressed = true; 
 
-    Rigidbody rb;
+    public Rigidbody rb;
+    public float jumpForce = 10f;
+    bool grounded = true; 
 
 
     private void Start()
@@ -21,9 +23,20 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        Jump();
 
 
     }
+
+    void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("jump");  
+            rb.AddForce(Vector3.up*jumpForce, ForceMode.Impulse);
+        }
+    }
+
 
     private void Move()
     {
@@ -48,8 +61,8 @@ public class Player : MonoBehaviour
         {
              transform.position = transform.position + new Vector3(-speed * Time.deltaTime, 0, 0);
              transform.Rotate(transform.up * -rotationalSpeed);
-
         }
+
     }
 
     void OnTriggerEnter(Collider other)
