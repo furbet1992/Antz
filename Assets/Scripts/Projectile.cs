@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
     
 
 
-    bool spriteOn = false;
+    bool spriteOn = true;
 
     private void Update()
     {
@@ -21,14 +21,21 @@ public class Projectile : MonoBehaviour
 
     private void Switch()
     {
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+        //if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+        //{
+        //    spriteOn = !spriteOn;
+        //    gameObject.GetComponent<MeshRenderer>().enabled = spriteOn;
+        //}
+
+        if (Input.GetKeyDown(KeyCode.K))
         {
             spriteOn = !spriteOn;
             gameObject.GetComponent<MeshRenderer>().enabled = spriteOn;
         }
     }
 
-    private void Movement()
+
+        private void Movement()
     {
         this.transform.Translate(0, 0, -projectileSpeed * Time.deltaTime);
         //this.transform.position += new Vector3(0, 0, projectileSpeed * Time.deltaTime); 

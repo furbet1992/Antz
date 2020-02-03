@@ -6,13 +6,12 @@ public class Player : MonoBehaviour
 {
     public float speed = 10;
     public float rotationalSpeed = 50f;
-
-    bool buttonPressed = true; 
-
-    public Rigidbody rb;
     public float jumpForce = 10f;
-    bool grounded = true; 
 
+    bool buttonPressed = true;
+    bool grounded = true;
+
+    Rigidbody rb;
 
     private void Start()
     {
@@ -23,31 +22,24 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
-        Jump();
-
-
-    }
-
-    void Jump()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("jump");  
-            rb.AddForce(Vector3.up*jumpForce, ForceMode.Impulse);
-        }
     }
 
 
     private void Move()
     {
-        
-        {     
-            this.transform.Translate(0f, -speed * Time.deltaTime, 0);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("jump");
+            rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
+        }
+
+        {
+            transform.Translate(0f, -speed * Time.deltaTime, 0);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position += new Vector3(0, 0, -speed*Time.deltaTime);
+            transform.position += new Vector3(0, 0, -speed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.D))
         {
@@ -59,21 +51,24 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A))
         {
-             transform.position = transform.position + new Vector3(-speed * Time.deltaTime, 0, 0);
-             transform.Rotate(transform.up * -rotationalSpeed);
+            transform.position = transform.position + new Vector3(-speed * Time.deltaTime, 0, 0);
+            transform.Rotate(transform.up * -rotationalSpeed);
         }
 
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Obstacles")
-        {
-            Destroy(gameObject);   //gameover, you lose 
-            Debug.Log("hit"); 
-        }
-    }
+            void OnTriggerEnter(Collider other)
+            {
+                if (other.tag == "Obstacles")
+                {
+                    Destroy(gameObject);   //gameover, you lose 
+                    Debug.Log("hit");
+                }
+            }
 
-}
+   }
+
+
+    
 
 
