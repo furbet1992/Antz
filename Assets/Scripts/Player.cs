@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public float health = 100f; 
     public float speed = 10;
     public float rotationalSpeed = 50f;
     public float jumpForce = 10f;
+ 
 
     bool buttonPressed = true;
     bool grounded = true;
 
     Rigidbody rb;
+    Projectile projectile;
 
     private void Start()
     {
@@ -64,6 +67,17 @@ public class Player : MonoBehaviour
                     Destroy(gameObject);   //gameover, you lose 
                     Debug.Log("hit");
                 }
+
+                if(other.tag == "Projectile")
+                {
+                    health--;
+            Debug.Log(health); 
+                }
+
+                if(other.tag == "SpeedBoost")
+                 {
+                     speed = 40; 
+                 }
             }
 
    }

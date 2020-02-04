@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class Switch : MonoBehaviour
 {
-    public GameObject projectile;
-    public GameObject obstacle;
+    public List<GameObject> obstacles = new List<GameObject>();
+    public List<GameObject> projectile = new List<GameObject>();
+    //public GameObject projectile;
+    //public GameObject obstacle;
 
     private int switchObjects = 1;
+    
 
     void Start()
     {
-        obstacle.GetComponent<Renderer>().enabled = true;
-        projectile.GetComponent<Renderer>().enabled = false;
-    }
+       foreach(GameObject g in obstacles)
+        {
+            g.GetComponent<Renderer>().enabled = true;
+        }
+        foreach (GameObject p in projectile)
+        {
+           p.GetComponent<Renderer>().enabled = false;
+        }
 
+    }
+    
     // Update is called once per frame
     void Update()
     {
@@ -25,8 +35,14 @@ public class Switch : MonoBehaviour
                 case 1:   //if the obstacle is on
                     switchObjects = 2; // then the projectile will now be turned on
 
-                    projectile.GetComponent<Renderer>().enabled = true;
-                    obstacle.GetComponent<Renderer>().enabled = false;
+                    foreach(GameObject g in obstacles)
+                    {
+                        g.GetComponent<Renderer>().enabled = false;                       
+                    }
+                    foreach (GameObject p in projectile)
+                    {
+                        p.GetComponent<Renderer>().enabled = true;
+                    }
 
                     break;
 
@@ -34,8 +50,14 @@ public class Switch : MonoBehaviour
 
                     switchObjects = 1; // then the obstacle will be turned on
 
-                    projectile.GetComponent<Renderer>().enabled = false;
-                    obstacle.GetComponent<Renderer>().enabled = true;
+                    foreach (GameObject g in obstacles)
+                    {
+                        g.GetComponent<Renderer>().enabled = true;
+                    }
+                    foreach (GameObject p in projectile)
+                    {
+                        p.GetComponent<Renderer>().enabled = false;
+                    }
 
                     break;
             }

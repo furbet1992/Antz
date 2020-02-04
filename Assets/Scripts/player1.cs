@@ -32,7 +32,7 @@ public class player1 : MonoBehaviour
 
     void Switch()
     {
-        // press 'K' to toggle projectile / obstacle
+        // press 'J to toggle projectile / obstacle
 
         if (Input.GetKeyDown(KeyCode.J))
         {

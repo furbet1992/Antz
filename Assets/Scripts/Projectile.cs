@@ -8,10 +8,16 @@ public class Projectile : MonoBehaviour
     [SerializeField] float projectileSpeed= 10f;
     [SerializeField] float projectileDamage = 10f;
 
-    
-
-
     bool spriteOn = true;
+
+
+    private void Start()
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Switch>().projectile.Add(this.gameObject);
+    }
+
+
+
 
     private void Update()
     {

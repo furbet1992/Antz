@@ -16,14 +16,7 @@ public class Turret : MonoBehaviour
 
     void Update()
     {
-        FollowPlayer();
         Shoot();
-    }
-
-
-    void FollowPlayer()
-    {
-        this.transform.LookAt(player); 
     }
 
     void Shoot()
