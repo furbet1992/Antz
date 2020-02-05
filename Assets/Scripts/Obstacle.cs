@@ -11,9 +11,11 @@ public class Obstacle : MonoBehaviour
         GameObject.FindGameObjectWithTag("Player").GetComponent<Switch>().obstacles.Add(this.gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.gameObject.tag == "Player")
+        {
+            Debug.Log("dead"); 
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class Player : MonoBehaviour
     public float speed = 10;
     public float rotationalSpeed = 50f;
     public float jumpForce = 10f;
+
+    public Text healthText; 
+
  
 
     bool buttonPressed = true;
@@ -19,12 +23,14 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        healthText = GetComponent<Text>(); 
     }
 
 
     void Update()
     {
         Move();
+        Health(); 
     }
 
 
@@ -60,7 +66,7 @@ public class Player : MonoBehaviour
 
     }
 
-            void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
             {
                 if (other.tag == "Obstacles")
                 {
@@ -68,11 +74,12 @@ public class Player : MonoBehaviour
                     Debug.Log("hit");
                 }
 
-                if(other.tag == "Projectile")
+                if (other.tag == "Projectile")
                 {
-                    health--;
-            Debug.Log(health); 
+
+                    health -= 50;
                 }
+
 
                 if(other.tag == "SpeedBoost")
                  {
@@ -80,7 +87,18 @@ public class Player : MonoBehaviour
                  }
             }
 
-   }
+    void Health()
+    {
+        if (health == 0)
+        {
+            Destroy(gameObject); // add canvas 'DEAD'
+        }
+        Debug.Log(health);
+    }
+}
+
+   
+
 
 
     
