@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -68,20 +69,18 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
             {
-                if (other.tag == "Obstacles")
+                     if (other.tag == "Obstacles") 
                 {
-                    Destroy(gameObject);   //gameover, you lose 
-                    Debug.Log("hit");
+                    health -= 70; 
                 }
 
-                if (other.tag == "Projectile")
+                    if (other.tag == "Projectile")
                 {
-
                     health -= 50;
                 }
 
 
-                if(other.tag == "SpeedBoost")
+                    if(other.tag == "SpeedBoost")
                  {
                      speed = 40; 
                  }
@@ -89,11 +88,11 @@ public class Player : MonoBehaviour
 
     void Health()
     {
-        if (health == 0)
+        if (health <= 0)
         {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
             Destroy(gameObject); // add canvas 'DEAD'
         }
-        Debug.Log(health);
     }
 }
 

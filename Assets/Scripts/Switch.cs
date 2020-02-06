@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class Switch : MonoBehaviour
 {
@@ -10,8 +11,8 @@ public class Switch : MonoBehaviour
     //public GameObject obstacle;
 
     private int switchObjects = 1;
-    
-
+    public float ammos = 20f;
+ 
     void Start()
     {
        foreach(GameObject g in obstacles)
@@ -28,10 +29,12 @@ public class Switch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J) && ammos >0)
         {
+            ammos -= 1; 
             switch (switchObjects)
             {
+
                 case 1:   //if the obstacle is on
                     switchObjects = 2; // then the projectile will now be turned on
 
@@ -60,6 +63,10 @@ public class Switch : MonoBehaviour
                     }
 
                     break;
+            }
+            if (ammos == 0)
+            {
+                return;
             }
         }
     }
