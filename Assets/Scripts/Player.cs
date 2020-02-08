@@ -11,9 +11,9 @@ public class Player : MonoBehaviour
     public float rotationalSpeed = 50f;
     public float jumpForce = 10f;
 
-    public Text healthText; 
+    public Text healthText;
 
- 
+    public GameManager gameManager; 
 
     bool buttonPressed = true;
     bool grounded = true;
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
 
     void Health()
     {
-        if (health <= 0)
+        if (health <= 0 || gameManager.currentTime == 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
             Destroy(gameObject); // add canvas 'DEAD'
