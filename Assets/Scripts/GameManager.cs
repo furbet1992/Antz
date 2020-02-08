@@ -30,7 +30,12 @@ public class GameManager : MonoBehaviour
 
     void displayProperties()
     {
-        playerHealth.text = "Health:" +  player.health.ToString();
+        playerHealth.text = "Health:" + player.health.ToString();
+
+        if (player.health <= 0)
+        {
+            playerHealth.text = "Health:" + player.health.ToString("0");
+        }    
         playerAmmo.text = "Ammo:" + ammo.ammos.ToString(); 
     }
 

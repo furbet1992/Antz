@@ -21,24 +21,24 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-        Switch();
+       
         Movement(); 
     }
 
-    private void Switch()
-    {
+    //private void Switch()
+    //{
         //if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
         //{
         //    spriteOn = !spriteOn;
         //    gameObject.GetComponent<MeshRenderer>().enabled = spriteOn;
         //}
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            spriteOn = !spriteOn;
-            gameObject.GetComponent<MeshRenderer>().enabled = spriteOn;
-        }
-    }
+    //    if (Input.GetKeyDown(KeyCode.K))
+    //    {
+    ////        spriteOn = !spriteOn;
+    ////        gameObject.GetComponent<MeshRenderer>().enabled = spriteOn;
+    ////    }
+    ////}
 
 
         private void Movement()
