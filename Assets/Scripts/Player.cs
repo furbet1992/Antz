@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
 
                     if(other.tag == "SpeedBoost")
                  {
-                     speed = 40; 
+                     speed += 20; 
                  }
             }
 
