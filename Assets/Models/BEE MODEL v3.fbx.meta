@@ -1,31 +1,20 @@
 fileFormatVersion: 2
-guid: a1e1130e100006c4da711a76c06a570f
+guid: ef071bc3af442ed44a4d5ba5d3131681
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: low_poly_log
-    100004: mr Area Spot001
-    100006: mr Area Spot001.Target
-    100008: mr Area Spot002
-    100010: mr Area Spot002.Target
-    100012: mr Area Spot003
-    100014: mr Area Spot003.Target
+    100002: imagePlane1
+    100004: pCube6
     400000: //RootNode
-    400002: low_poly_log
-    400004: mr Area Spot001
-    400006: mr Area Spot001.Target
-    400008: mr Area Spot002
-    400010: mr Area Spot002.Target
-    400012: mr Area Spot003
-    400014: mr Area Spot003.Target
-    2100000: log_texture
-    2300000: low_poly_log
-    3300000: low_poly_log
-    4300000: low_poly_log
-    10800000: mr Area Spot001
-    10800002: mr Area Spot002
-    10800004: mr Area Spot003
+    400002: imagePlane1
+    400004: pCube6
+    2100000: lambert2
+    2100002: blinn1
+    2100004: lambert1
+    2300000: pCube6
+    3300000: pCube6
+    4300000: pCube6
   externalObjects: {}
   materials:
     importMaterials: 1
